@@ -12,7 +12,9 @@
 <body>
   <div class="noise"></div>
   <header class="topbar">
-    <div class="logo">ПЛАТО</div>
+    <a class="logo" href="#hero" aria-label="ПЛАТО">
+      <img class="logo-img" src="assets/plato.png" alt="ПЛАТО" loading="lazy" />
+    </a>
     <nav class="nav">
       <a href="#problem">Порядок</a>
       <a href="#features">Функции</a>
@@ -28,7 +30,7 @@
       <div class="hero__text">
         <p class="eyebrow">Дом для вашей SberBoom</p>
         <h1>Порядок, свет и аромат в одном движении.</h1>
-        <p class="lead">ПЛАТО — премиальная подставка, которая превращает колонку в центр спокойствия: скрывает кабели, добавляет аромат и мягкую светомузыку.</p>
+        <p class="lead">ПЛАТО — премиальная подставка для SberBoom, которая организует пространство и делает колонку частью интерьера.</p>
         <div class="actions">
           <a class="btn primary" href="#cta">Оформить предзаказ</a>
           <a class="btn ghost" href="#features">Узнать больше</a>
@@ -42,7 +44,7 @@
           <div class="glow"></div>
           <img src="assets/plato-emblem.svg" alt="Абстрактная графика ПЛАТО" class="hero-img" />
           <div class="hero-info">
-            <p>Платформа с мягким светом, ароматом и аккуратным кабелем.</p>
+            <p>Платформа, которая задаёт место колонке и добавляет атмосферу.</p>
             <div class="hero-meta">
               <span>Универсальная посадка SberBoom</span>
               <span>Тонкая алюминиевая грань</span>
@@ -54,7 +56,7 @@
 
     <section class="problem" id="problem">
       <div class="section-head">
-        <p class="eyebrow">Проблема → решение</p>
+        <p class="eyebrow">Проблема — решение</p>
         <h2>Колонка без места — визуальный шум. ПЛАТО создаёт порядок.</h2>
         <p class="lead">Мы убрали хаос проводов, выделили колонке сцену и добавили атмосферу. Теперь технология выглядит как часть интерьера.</p>
       </div>
@@ -82,7 +84,7 @@
       <div class="section-head">
         <p class="eyebrow">Функции и преимущества</p>
         <h2>Сценарии, продуманные для жизни</h2>
-        <p class="lead">Каждый элемент ПЛАТО работает незаметно, оставляя только ощущение порядка и мягкого света.</p>
+        <p class="lead">Каждый элемент ПЛАТО работает незаметно, оставляя ощущение простора и мягкого света.</p>
       </div>
       <div class="grid three">
         <div class="feature card">
@@ -122,7 +124,7 @@
       <div class="section-head">
         <p class="eyebrow">Философия бренда</p>
         <h2>Мы даём колонке дом, а вам — стиль и спокойствие.</h2>
-        <p class="lead">Выделить место для технологии — значит осознанно встроить её в дом. ПЛАТО соединяет цифровое и тактильное: свет, аромат, звук и порядок.</p>
+        <p class="lead">Выделить место для технологии — значит осознанно встроить её в дом. ПЛАТО помогает сделать это красиво: всё на своих местах, ничего не спорит с интерьером.</p>
       </div>
       <div class="grid two">
         <div class="quote card soft">
@@ -130,6 +132,7 @@
           <span class="quote__author">Команда ПЛАТО</span>
         </div>
         <div class="pillars card outlined">
+          <img class="emotion-art" src="assets/Логотип РМО.png" alt="" loading="lazy" aria-hidden="true" />
           <div>
             <h4>Дом</h4>
             <p>Для гостиной, спальни, кухни. Вписывается в дерево, бетон, белые и цветные стены.</p>
@@ -153,10 +156,10 @@
     <section class="models" id="models">
       <div class="section-head">
         <p class="eyebrow">3D-модели</p>
-        <h2>Скачивайте и смотрите конструкцию</h2>
-        <p class="lead">STEP-модели можно вращать прямо на странице. Форматы <strong>.m3d</strong> и <strong>.a3d</strong> предназначены для КОМПАС-3D.</p>
+        <h2>Смотрите конструкцию в 3D</h2>
+        <p class="lead">Выберите STEP-модель — её можно вращать прямо на странице.</p>
       </div>
-      <div class="grid two">
+      <div class="grid">
         <div class="card soft">
           <div class="models-toolbar">
             <label class="models-field">
@@ -173,33 +176,27 @@
           </div>
           <p class="models-hint">Управление: вращение — ЛКМ, панорама — ПКМ, масштаб — колесо.</p>
         </div>
-
-        <div class="card outlined">
-          <h3>Файлы для скачивания</h3>
-          <p class="lead">Оригиналы лежат в <code>assets/models</code>.</p>
-          <div class="models-files" id="modelsFiles"></div>
-        </div>
       </div>
     </section>
 
     <section class="audience" id="audience">
       <div class="section-head">
         <p class="eyebrow">Для кого продукт</p>
-        <h2>Городские жители, которым важны чистые линии</h2>
-        <p class="lead">Молодые профессионалы, семьи, меломаны — все, кто воспринимает гаджеты как часть интерьера.</p>
+        <h2>Тем, кто хочет, чтобы техника выглядела как часть интерьера</h2>
+        <p class="lead">ПЛАТО для людей, которые ценят чистые поверхности, продуманные детали и «своё место» для каждой вещи.</p>
       </div>
       <div class="grid three">
         <div class="persona card">
           <h3>Минималисты</h3>
-          <p>Ценят воздух и порядок. ПЛАТО скрывает лишнее и подчёркивает главное.</p>
+          <p>Любят чистые линии и спокойные поверхности. ПЛАТО убирает визуальный шум и оставляет только форму.</p>
         </div>
         <div class="persona card">
           <h3>Семьи</h3>
-          <p>Безопасная посадка для колонки и аккуратный кабель — меньше беспокойства, больше уюта.</p>
+          <p>Надёжная посадка и спрятанный кабель — меньше шансов задеть или уронить, больше спокойствия.</p>
         </div>
         <div class="persona card">
           <h3>Меломаны</h3>
-          <p>Свет реагирует на музыку, создавая сцену для вечера или тихого утра.</p>
+          <p>Световой акцент поддерживает настроение трека, а колонка всегда стоит уверенно и красиво.</p>
         </div>
       </div>
     </section>
@@ -246,9 +243,9 @@
   </main>
 
   <footer class="footer">
-    <span>ПЛАТО — дом для технологий.</span>
-    <span class="dot">•</span>
-    <span>Стиль, порядок, свет.</span>
+    <span>ПЛАТО — порядок в деталях.</span>
+    <span class="dot">·</span>
+    <span>Стиль, тишина, свет.</span>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/occt-import-js@0.0.23/dist/occt-import-js.js"></script>
@@ -261,5 +258,6 @@
     }
   </script>
   <script type="module" src="models-viewer.js"></script>
+  <script type="module" src="site.js"></script>
 </body>
 </html>

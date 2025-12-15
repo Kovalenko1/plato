@@ -1,100 +1,8 @@
-const MODEL_GROUPS = [
-  {
-    title: 'ПЛАТО 1',
-    files: [
-      { path: 'assets/models/Плато 1/Подставка 2.m3d' },
-    ],
-  },
-  {
-    title: 'ПЛАТО 2',
-    files: [
-      { path: 'assets/models/Плато 2/(.STEP)/3D Сборка 1.stp' },
-    ],
-  },
-  {
-    title: 'ПЛАТО 3',
-    files: [
-      { path: 'assets/models/Плато 3/(.STEP)/3D Сборка 2.stp' },
-    ],
-  },
-  {
-    title: 'ПЛАТО 4',
-    files: [
-      { path: 'assets/models/Плато 4/(.STEP)/3D Сборка 3.stp' },
-
-    ],
-  },
-];
-
 const STEP_MODELS = [
-  { label: 'ПЛАТО 1', path: 'assets/models/Плато 1/Подставка 2.m3d' },
   { label: 'ПЛАТО 2', path: 'assets/models/Плато 2/(.STEP)/3D Сборка 1.stp' },
   { label: 'ПЛАТО 3', path: 'assets/models/Плато 3/(.STEP)/3D Сборка 2.stp' },
   { label: 'ПЛАТО 4', path: 'assets/models/Плато 4/(.STEP)/3D Сборка 3.stp' },
 ];
-
-function fileNameFromPath(path) {
-  const normalized = path.replace(/\\/g, '/');
-  const parts = normalized.split('/');
-  return parts[parts.length - 1] ?? path;
-}
-
-function extFromPath(path) {
-  const name = fileNameFromPath(path);
-  const dot = name.lastIndexOf('.');
-  if (dot === -1) return '';
-  return name.slice(dot + 1).toLowerCase();
-}
-
-function metaForExt(ext) {
-  if (ext === 'stp' || ext === 'step') return 'STEP';
-  if (ext === 'm3d' || ext === 'a3d') return 'КОМПАС-3D';
-  return ext ? ext.toUpperCase() : '';
-}
-
-function createFileLink(path) {
-  const a = document.createElement('a');
-  a.href = path;
-  a.download = '';
-  a.textContent = fileNameFromPath(path);
-  return a;
-}
-
-function renderFiles() {
-  const container = document.getElementById('modelsFiles');
-  if (!container) return;
-
-  container.textContent = '';
-
-  for (const group of MODEL_GROUPS) {
-    const groupEl = document.createElement('div');
-    groupEl.className = 'models-group';
-
-    const title = document.createElement('h4');
-    title.textContent = group.title;
-    groupEl.appendChild(title);
-
-    const list = document.createElement('ul');
-    for (const file of group.files) {
-      const li = document.createElement('li');
-      const link = createFileLink(file.path);
-      li.appendChild(link);
-
-      const ext = extFromPath(file.path);
-      const meta = metaForExt(ext);
-      if (meta) {
-        const metaEl = document.createElement('span');
-        metaEl.className = 'models-meta';
-        metaEl.textContent = meta;
-        li.appendChild(metaEl);
-      }
-
-      list.appendChild(li);
-    }
-    groupEl.appendChild(list);
-    container.appendChild(groupEl);
-  }
-}
 
 function populateSelect() {
   const select = document.getElementById('modelSelect');
@@ -104,7 +12,7 @@ function populateSelect() {
 
   const placeholder = document.createElement('option');
   placeholder.value = '';
-  placeholder.textContent = 'Выберите STEP модель…';
+  placeholder.textContent = 'Выберите модель…';
   placeholder.disabled = true;
   placeholder.selected = true;
   select.appendChild(placeholder);
@@ -306,7 +214,7 @@ async function handleLoadClick() {
 
   const path = select.value;
   if (!path) {
-    setOverlay('Выберите STEP модель из списка.', false);
+    setOverlay('Выберите модель из списка.', false);
     return;
   }
 
@@ -334,7 +242,6 @@ async function handleResetClick() {
 }
 
 function init() {
-  renderFiles();
   populateSelect();
 
   const loadBtn = document.getElementById('modelLoad');
