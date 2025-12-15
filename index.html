@@ -17,6 +17,7 @@
       <a href="#problem">Порядок</a>
       <a href="#features">Функции</a>
       <a href="#emotion">Философия</a>
+      <a href="#models">3D-модели</a>
       <a href="#future">Линейка</a>
     </nav>
     <a class="pill" href="#cta">Предзаказ</a>
@@ -149,6 +150,38 @@
       </div>
     </section>
 
+    <section class="models" id="models">
+      <div class="section-head">
+        <p class="eyebrow">3D-модели</p>
+        <h2>Скачивайте и смотрите конструкцию</h2>
+        <p class="lead">STEP-модели можно вращать прямо на странице. Форматы <strong>.m3d</strong> и <strong>.a3d</strong> предназначены для КОМПАС-3D.</p>
+      </div>
+      <div class="grid two">
+        <div class="card soft">
+          <div class="models-toolbar">
+            <label class="models-field">
+              <span>STEP модель</span>
+              <select id="modelSelect" class="models-select"></select>
+            </label>
+            <button class="btn primary" id="modelLoad" type="button">Открыть 3D</button>
+            <button class="btn ghost" id="modelReset" type="button">Сброс</button>
+          </div>
+
+          <div class="models-view" id="modelsView" aria-label="Просмотр 3D модели">
+            <canvas id="modelsCanvas"></canvas>
+            <div class="models-overlay" id="modelsOverlay">Выберите модель и нажмите «Открыть 3D»</div>
+          </div>
+          <p class="models-hint">Управление: вращение — ЛКМ, панорама — ПКМ, масштаб — колесо.</p>
+        </div>
+
+        <div class="card outlined">
+          <h3>Файлы для скачивания</h3>
+          <p class="lead">Оригиналы лежат в <code>assets/models</code>.</p>
+          <div class="models-files" id="modelsFiles"></div>
+        </div>
+      </div>
+    </section>
+
     <section class="audience" id="audience">
       <div class="section-head">
         <p class="eyebrow">Для кого продукт</p>
@@ -217,5 +250,16 @@
     <span class="dot">•</span>
     <span>Стиль, порядок, свет.</span>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/occt-import-js@0.0.23/dist/occt-import-js.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="models-viewer.js"></script>
 </body>
 </html>
