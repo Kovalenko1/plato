@@ -52,7 +52,7 @@ onReady(() => {
   if (!prefersReducedMotion && canHover) {
     const heroCard = document.querySelector('.hero-card');
     if (heroCard) {
-      const maxTilt = 10;
+      const maxTilt = 6;
       heroCard.addEventListener('pointermove', (e) => {
         const rect = heroCard.getBoundingClientRect();
         const px = (e.clientX - rect.left) / rect.width;
@@ -67,45 +67,5 @@ onReady(() => {
         heroCard.style.setProperty('--ry', '0deg');
       });
     }
-
-    const glow = document.createElement('div');
-    glow.className = 'cursor-glow';
-    document.body.appendChild(glow);
-
-    let targetX = window.innerWidth / 2;
-    let targetY = window.innerHeight / 2;
-    let currentX = targetX;
-    let currentY = targetY;
-    let raf = 0;
-    let visible = false;
-
-    function tick() {
-      currentX += (targetX - currentX) * 0.14;
-      currentY += (targetY - currentY) * 0.14;
-      glow.style.left = `${currentX}px`;
-      glow.style.top = `${currentY}px`;
-      raf = requestAnimationFrame(tick);
-    }
-
-    function show() {
-      if (visible) return;
-      visible = true;
-      glow.style.opacity = '1';
-      if (!raf) raf = requestAnimationFrame(tick);
-    }
-
-    function hide() {
-      visible = false;
-      glow.style.opacity = '0';
-    }
-
-    window.addEventListener('pointermove', (e) => {
-      targetX = e.clientX;
-      targetY = e.clientY;
-      show();
-    });
-    window.addEventListener('blur', hide);
-    document.addEventListener('mouseleave', hide);
   }
 });
-

@@ -19,7 +19,6 @@
       <a href="#problem">Порядок</a>
       <a href="#features">Функции</a>
       <a href="#emotion">Философия</a>
-      <a href="#models">3D-модели</a>
       <a href="#future">Линейка</a>
     </nav>
     <a class="pill" href="#cta">Предзаказ</a>
@@ -153,30 +152,6 @@
       </div>
     </section>
 
-    <section class="models" id="models">
-      <div class="section-head">
-        <p class="eyebrow">3D-модели</p>
-        <h2>Смотрите конструкцию в 3D</h2>
-        <p class="lead">Модель меняется при выборе — вращайте её прямо на странице.</p>
-      </div>
-      <div class="grid">
-        <div class="card soft">
-          <div class="models-toolbar">
-            <label class="models-field">
-              <span>STEP модель</span>
-              <select id="modelSelect" class="models-select"></select>
-            </label>
-          </div>
-
-          <div class="models-view" id="modelsView" aria-label="Просмотр 3D модели">
-            <canvas id="modelsCanvas"></canvas>
-            <div class="models-overlay" id="modelsOverlay">Загрузка…</div>
-          </div>
-          <p class="models-hint">Управление: вращение — ЛКМ, панорама — ПКМ, масштаб — колесо.</p>
-        </div>
-      </div>
-    </section>
-
     <section class="audience" id="audience">
       <div class="section-head">
         <p class="eyebrow">Для кого продукт</p>
@@ -246,16 +221,6 @@
     <span>Стиль, тишина, свет.</span>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/occt-import-js@0.0.23/dist/occt-import-js.js"></script>
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/"
-      }
-    }
-  </script>
-  <script type="module" src="models-viewer.js"></script>
   <script type="module" src="site.js"></script>
 </body>
 </html>
