@@ -157,7 +157,7 @@
       <div class="section-head">
         <p class="eyebrow">3D-модели</p>
         <h2>Смотрите конструкцию в 3D</h2>
-        <p class="lead">Выберите STEP-модель — её можно вращать прямо на странице.</p>
+        <p class="lead">Модель меняется при выборе — вращайте её прямо на странице.</p>
       </div>
       <div class="grid">
         <div class="card soft">
@@ -166,13 +166,11 @@
               <span>STEP модель</span>
               <select id="modelSelect" class="models-select"></select>
             </label>
-            <button class="btn primary" id="modelLoad" type="button">Открыть 3D</button>
-            <button class="btn ghost" id="modelReset" type="button">Сброс</button>
           </div>
 
           <div class="models-view" id="modelsView" aria-label="Просмотр 3D модели">
             <canvas id="modelsCanvas"></canvas>
-            <div class="models-overlay" id="modelsOverlay">Выберите модель и нажмите «Открыть 3D»</div>
+            <div class="models-overlay" id="modelsOverlay">Загрузка…</div>
           </div>
           <p class="models-hint">Управление: вращение — ЛКМ, панорама — ПКМ, масштаб — колесо.</p>
         </div>

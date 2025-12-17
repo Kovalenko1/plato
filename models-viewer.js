@@ -10,13 +10,6 @@ function populateSelect() {
 
   select.textContent = '';
 
-  const placeholder = document.createElement('option');
-  placeholder.value = '';
-  placeholder.textContent = 'Выберите модель…';
-  placeholder.disabled = true;
-  placeholder.selected = true;
-  select.appendChild(placeholder);
-
   for (const model of STEP_MODELS) {
     const option = document.createElement('option');
     option.value = model.path;
@@ -207,47 +200,44 @@ function setOverlay(text, hidden) {
   overlay.classList.toggle('hidden', Boolean(hidden));
 }
 
-async function handleLoadClick() {
-  const select = document.getElementById('modelSelect');
-  const button = document.getElementById('modelLoad');
-  if (!select || !(select instanceof HTMLSelectElement) || !button) return;
+let isLoading = false;
+
+async function loadFromSelect(select) {
+  if (isLoading) return;
 
   const path = select.value;
   if (!path) {
-    setOverlay('Выберите модель из списка.', false);
+    setOverlay('Нет доступных моделей.', false);
     return;
   }
 
+  isLoading = true;
+  select.disabled = true;
+  setOverlay('Загрузка…', false);
   try {
-    button.setAttribute('disabled', 'disabled');
-    setOverlay('Загрузка…', false);
     const viewer = await ensureViewer();
     await viewer.loadStepFromUrl(path);
     setOverlay('', true);
   } catch (err) {
     setOverlay(err instanceof Error ? err.message : 'Не удалось загрузить модель.', false);
   } finally {
-    button.removeAttribute('disabled');
-  }
-}
-
-async function handleResetClick() {
-  try {
-    const viewer = await ensureViewer();
-    viewer.reset();
-    setOverlay('Выберите модель и нажмите «Открыть 3D»', false);
-  } catch {
-    setOverlay('Выберите модель и нажмите «Открыть 3D»', false);
+    select.disabled = false;
+    isLoading = false;
   }
 }
 
 function init() {
   populateSelect();
 
-  const loadBtn = document.getElementById('modelLoad');
-  const resetBtn = document.getElementById('modelReset');
-  loadBtn?.addEventListener('click', handleLoadClick);
-  resetBtn?.addEventListener('click', handleResetClick);
+  const select = document.getElementById('modelSelect');
+  if (!select || !(select instanceof HTMLSelectElement)) return;
+
+  if (!select.value && STEP_MODELS[0]?.path) {
+    select.value = STEP_MODELS[0].path;
+  }
+
+  select.addEventListener('change', () => loadFromSelect(select));
+  loadFromSelect(select);
 }
 
 if (document.readyState === 'loading') {
