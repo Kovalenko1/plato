@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,382 +7,83 @@
   <title>ПЛАТО — дом для SberBoom</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            plato: {
+              bg: '#F4F2EE',
+              card: 'rgba(255, 255, 255, 0.78)',
+              accent: '#B4B8A9',
+              'accent-dark': '#7B7F71',
+              text: '#1F1F1C',
+              muted: 'rgba(31, 31, 28, 0.62)',
+              stroke: 'rgba(31, 31, 28, 0.12)',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes noise {
+      0%, 100% { transform: translate(0, 0); }
+      10% { transform: translate(-5%, -5%); }
+      20% { transform: translate(-10%, 5%); }
+      30% { transform: translate(5%, -10%); }
+      40% { transform: translate(-5%, 15%); }
+      50% { transform: translate(-10%, 5%); }
+      60% { transform: translate(15%, 0); }
+      70% { transform: translate(0, 10%); }
+      80% { transform: translate(-15%, 0); }
+      90% { transform: translate(10%, 5%); }
+    }
+    .noise-overlay {
+      position: fixed;
+      inset: -200%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: 9999;
+      animation: noise 1s steps(2) infinite;
+    }
+    .glass {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #F4F2EE;
+    }
+    ::selection {
+      background: #B4B8A9;
+      color: #1F1F1C;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/src/styles/index.css">
 </head>
-<body>
-  <div class="noise"></div>
-  <header class="topbar">
-    <a class="logo" href="#hero" aria-label="ПЛАТО">
-      <img class="logo-img" src="assets/plato.png" alt="ПЛАТО" loading="lazy" />
-    </a>
-    <nav class="nav">
-      <a href="#problem">Порядок</a>
-      <a href="#interior">Интерьер</a>
-      <a href="#features">Функции</a>
-      <a href="#emotion">Философия</a>
-      <a href="#future">Линейка</a>
-    </nav>
-    <a class="pill" href="#cta">Предзаказ</a>
-  </header>
-
-  <main>
-    <section class="hero" id="hero">
-      <div class="hero__text">
-        <p class="eyebrow">Дом для вашей SberBoom</p>
-        <h1>Порядок, свет и аромат в одном движении.</h1>
-        <p class="lead">ПЛАТО — премиальная подставка для SberBoom, которая организует пространство и делает колонку частью интерьера.</p>
-        <div class="actions">
-          <a class="btn primary" href="#cta">Оформить предзаказ</a>
-          <a class="btn ghost" href="#features">Узнать больше</a>
-        </div>
-        <div class="tags">
-          <span>Минимализм</span><span>Интерьер</span><span>Эргономика</span><span>LED</span>
-        </div>
-      </div>
-      <div class="hero__visual">
-        <div class="card hero-card">
-          <div class="glow"></div>
-          <img src="assets/homeModel/1.png" alt="ПЛАТО и SberBoom в интерьере" class="hero-img" decoding="async" />
-          <div class="hero-info">
-            <p>Платформа, которая задаёт место колонке и добавляет атмосферу.</p>
-            <div class="hero-meta">
-              <span>Универсальная посадка SberBoom</span>
-              <span>Тонкая алюминиевая грань</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="interior scene" id="interior" style="--scene-image: url('assets/homeModel/1.png');">
-      <div class="section-head">
-        <p class="eyebrow">Интерьерные задумки</p>
-        <h2>Комнаты, мебель и сценарии для колонки</h2>
-        <p class="lead">Подборка идей, как поставить SberBoom на ПЛАТО так, чтобы это выглядело как предмет интерьера: правильные поверхности, композиция и настроение.</p>
-      </div>
-
-      <div class="grid three interior-top">
-        <figure class="card media">
-          <img src="assets/homeModel/2.png" alt="Деталь ПЛАТО с мягкой подсветкой" loading="lazy" decoding="async" />
-          <figcaption>
-            <strong>Тёплый акцент</strong>
-            <p class="muted">Кольцо света работает как каминный отблеск: на комоде, консоли, полке рядом с книгами.</p>
-            <div class="chips">
-              <span>гостиная</span><span>вечер</span><span>дерево</span>
-            </div>
-          </figcaption>
-        </figure>
-
-        <figure class="card media">
-          <img src="assets/homeModel/3.png" alt="ПЛАТО на столешнице с тонкой линией света" loading="lazy" decoding="async" />
-          <figcaption>
-            <strong>Тихий профиль</strong>
-            <p class="muted">Низкий силуэт не спорит с мебелью — хорошо смотрится на тумбе под ТВ и на рабочем столе.</p>
-            <div class="chips">
-              <span>кабинет</span><span>медиа</span><span>минимализм</span>
-            </div>
-          </figcaption>
-        </figure>
-
-        <div class="card outlined palette-card">
-          <h3>Сочетания с мебелью</h3>
-          <p class="lead">Подбирайте окружение так, чтобы ПЛАТО стал «ещё одним предметом» на поверхности, а не гаджетом.</p>
-          <div class="swatches" aria-label="Палитра интерьера">
-            <div class="swatch" style="--c:#B4B8A9"><span>#B4B8A9</span></div>
-            <div class="swatch" style="--c:#e7e2d7"><span>тёплый белый</span></div>
-            <div class="swatch" style="--c:#c7b29a"><span>дуб/орех</span></div>
-            <div class="swatch" style="--c:#1f1f1c"><span>графит</span></div>
-          </div>
-          <ul class="bullets">
-            <li>Дерево + лен + зелень: спокойный сканди / Japandi.</li>
-            <li>Камень + металл: современная классика и loft без «холода».</li>
-            <li>Мини-композиция рядом: книга, свеча, ваза — и поверхность выглядит собранной.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="section-head compact">
-        <p class="eyebrow">Комнаты</p>
-        <h2>Где поставить и как оформить</h2>
-        <p class="lead">Несколько готовых сценариев — под мебель, свет и привычки.</p>
-      </div>
-
-      <div class="accordion">
-        <details class="card soft accordion-item" style="--room-bg: url('assets/homeModel/1.png');" open>
-          <summary>
-            <span class="accordion__title">Гостиная</span>
-            <span class="accordion__meta">тумба под ТВ, консоль, журнальный стол</span>
-          </summary>
-          <div class="accordion__body">
-            <ul class="bullets">
-              <li>Оставьте «воздух» 10–15 см до стены — и звук свободнее, и композиция легче.</li>
-              <li>Кабель уводите за ножку мебели или в тонкий канал под столешницей.</li>
-              <li>Соберите композицию: книга + керамика + ПЛАТО — техника выглядит как декор.</li>
-              <li>Если две колонки — поставьте симметрично по краям тумбы под ТВ: интерьер сразу «собирается».</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="card soft accordion-item" style="--room-bg: url('assets/homeModel/2.png');">
-          <summary>
-            <span class="accordion__title">Спальня</span>
-            <span class="accordion__meta">прикроватная тумба, консоль, полка</span>
-          </summary>
-          <div class="accordion__body">
-            <ul class="bullets">
-              <li>Ставьте на одну линию с лампой и книгой: «три предмета» всегда выглядят собранно.</li>
-              <li>Выбирайте тёплое свечение как ночник, чтобы не «будить» интерьер.</li>
-              <li>Рядом хорошо работает текстиль: лен, шерсть, матовые фактуры.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="card soft accordion-item" style="--room-bg: url('assets/homeModel/3.png');">
-          <summary>
-            <span class="accordion__title">Кухня</span>
-            <span class="accordion__meta">остров, столешница, обеденная зона</span>
-          </summary>
-          <div class="accordion__body">
-            <ul class="bullets">
-              <li>Держите поверхность чистой: ПЛАТО в центре стола заменяет «россыпь» мелочей.</li>
-              <li>Лучшее место — рядом с розеткой, вдали от воды и плиты, чтобы кабель не лежал на виду.</li>
-              <li>Добавьте один акцент: деревянная доска или керамика — поддержит материал.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="card soft accordion-item" style="--room-bg: url('assets/homeModel/2.png');">
-          <summary>
-            <span class="accordion__title">Кабинет</span>
-            <span class="accordion__meta">рабочий стол, полка, комод</span>
-          </summary>
-          <div class="accordion__body">
-            <ul class="bullets">
-              <li>Смещайте к углу стола: остаётся место для работы, и колонка не «давит» на композицию.</li>
-              <li>Кабель прячьте в клипсу/канал и ведите по задней кромке — визуально чище.</li>
-              <li>Соседство: держатель для наушников или один предмет из дерева делает зону цельной.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="card soft accordion-item" style="--room-bg: url('assets/homeModel/1.png');">
-          <summary>
-            <span class="accordion__title">Прихожая</span>
-            <span class="accordion__meta">консоль у входа, ключница, зеркало</span>
-          </summary>
-          <div class="accordion__body">
-            <ul class="bullets">
-              <li>На консоли рядом с зеркалом ПЛАТО работает как «приветственный» свет.</li>
-              <li>Минимум предметов: поднос для ключей + ПЛАТО — и поверхность выглядит спокойной.</li>
-              <li>Тёплый акцент в сумерках делает входную зону уютнее.</li>
-            </ul>
-          </div>
-        </details>
-      </div>
-
-      <div class="section-head compact">
-        <p class="eyebrow">Композиции</p>
-        <h2>Три способа сделать красиво на поверхности</h2>
-        <p class="lead">Не про гаджеты — про мебель и спокойный порядок.</p>
-      </div>
-
-      <div class="grid three">
-        <div class="card outlined">
-          <h3>Триада</h3>
-          <p class="muted">Самый простой приём: объедините три предмета разной высоты на одной поверхности.</p>
-          <ul class="bullets">
-            <li>ПЛАТО + книга + лампа/ваза.</li>
-            <li>Оставьте пустое место вокруг — «воздух» важнее декора.</li>
-          </ul>
-        </div>
-        <div class="card outlined">
-          <h3>Симметрия</h3>
-          <p class="muted">Работает для медиа-зоны и длинных комодов: два одинаковых акцента дают ощущение порядка.</p>
-          <ul class="bullets">
-            <li>Пара колонок по краям, центр — под экран или арт-объект.</li>
-            <li>Кабель ведите по одной логике — одинаковые траектории выглядят аккуратно.</li>
-          </ul>
-        </div>
-        <div class="card outlined">
-          <h3>Тихий угол</h3>
-          <p class="muted">Лучшее решение для кухни и кабинета: техника рядом, но не в центре внимания.</p>
-          <ul class="bullets">
-            <li>Сместите к углу столешницы и поддержите одной фактурой (дерево/керамика).</li>
-            <li>Уберите мелочи в поднос — поверхность выглядит «архитектурно».</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="problem" id="problem">
-      <div class="section-head">
-        <p class="eyebrow">Проблема - решение</p>
-        <h2>Колонка без места - визуальный шум. ПЛАТО создаёт порядок.</h2>
-        <p class="lead">Мы убрали хаос проводов, выделили колонке сцену и добавили атмосферу. Теперь технология выглядит как часть интерьера.</p>
-      </div>
-      <div class="grid two">
-        <div class="card soft">
-          <h3>До</h3>
-          <ul>
-            <li>Провода на виду, пространство перегружено.</li>
-            <li>Колонка стоит где придётся, нет ощущения «места».</li>
-            <li>Свет и аромат — отдельные устройства, ещё больше вещей.</li>
-          </ul>
-        </div>
-        <div class="card outlined">
-          <h3>После</h3>
-          <ul>
-            <li>Кабель скрыт внутри канала — визуальный покой.</li>
-            <li>Колонка на собственной платформе, подчёркивающей форму.</li>
-            <li>Встроенная подсветка и аромат-картридж без лишних гаджетов.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="features scene" id="features" style="--scene-image: url('assets/homeModel/3.png');">
-      <div class="section-head">
-        <p class="eyebrow">Функции и преимущества</p>
-        <h2>Сценарии, продуманные для жизни</h2>
-        <p class="lead">Каждый элемент ПЛАТО работает незаметно, оставляя ощущение простора и мягкого света.</p>
-      </div>
-      <div class="grid three">
-        <div class="feature card">
-          <div class="badge">01</div>
-          <h3>Скрытый аромат</h3>
-          <p>Отсек для картриджа внутри платформы. Лёгкий шлейф ароматов без лишних устройств на поверхности.</p>
-        </div>
-        <div class="feature card">
-          <div class="badge">02</div>
-          <h3>Мягкая светомузыка</h3>
-          <p>Регулируемая LED-подсветка реагирует на звук и настроение. Тёплый свет подчёркивает форму SberBoom.</p>
-        </div>
-        <div class="feature card">
-          <div class="badge">03</div>
-          <h3>Чистый кабель</h3>
-          <p>Встроенный канал прячет провод и направляет его к розетке. Ничего лишнего на поверхности и в кадре.</p>
-        </div>
-        <div class="feature card">
-          <div class="badge">04</div>
-          <h3>Универсальная посадка</h3>
-          <p>Подходит для всех моделей SberBoom. Мягкое основание фиксирует колонку и защищает поверхность мебели.</p>
-        </div>
-        <div class="feature card">
-          <div class="badge">05</div>
-          <h3>Премиальные материалы</h3>
-          <p>Холодная алюминиевая грань, тёплый матовый верх, тактильное кольцо управления светом.</p>
-        </div>
-        <div class="feature card">
-          <div class="badge">06</div>
-          <h3>Гармония в интерьере</h3>
-          <p>Минималистичный силуэт, вдохновлённый скандинавским дизайном. Работает и как акцент, и как тихий фон.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="emotion scene" id="emotion" style="--scene-image: url('assets/homeModel/2.png');">
-      <div class="section-head">
-        <p class="eyebrow">Философия бренда</p>
-        <h2>Мы даём колонке дом, а вам — стиль и спокойствие.</h2>
-        <p class="lead">Выделить место для технологии — значит осознанно встроить её в дом. ПЛАТО помогает сделать это красиво: всё на своих местах, ничего не спорит с интерьером.</p>
-      </div>
-      <div class="grid two">
-        <div class="quote card soft">
-          <p class="quote__text">«ПЛАТО — это небольшая сцена для вашего помощника. Когда на столе порядок, мыслить легче, слушать музыку приятнее, а дом кажется спокойнее.»</p>
-          <span class="quote__author">Команда ПЛАТО</span>
-        </div>
-        <div class="pillars card outlined">
-          <img class="emotion-art" src="assets/Логотип РМО.png" alt="" loading="lazy" aria-hidden="true" />
-          <div>
-            <h4>Дом</h4>
-            <p>Для гостиной, спальни, кухни. Вписывается в дерево, бетон, белые и цветные стены.</p>
-          </div>
-          <div>
-            <h4>Интерьер</h4>
-            <p>Минимум деталей, максимум воздуха. Сочетается с эстетикой Apple / Muji / Nothing.</p>
-          </div>
-          <div>
-            <h4>Музыка</h4>
-            <p>Световой акцент меняет настроение трека: мягкий, тёплый, приглушённый.</p>
-          </div>
-          <div>
-            <h4>Уют</h4>
-            <p>Аромат и порядок создают ощущение присутствия — колонка становится частью пространства.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="audience" id="audience">
-      <div class="section-head">
-        <p class="eyebrow">Для кого продукт</p>
-        <h2>Тем, кто хочет, чтобы техника выглядела как часть интерьера</h2>
-        <p class="lead">ПЛАТО для людей, которые ценят чистые поверхности, продуманные детали и «своё место» для каждой вещи.</p>
-      </div>
-      <div class="grid three">
-        <div class="persona card">
-          <h3>Минималисты</h3>
-          <p>Любят чистые линии и спокойные поверхности. ПЛАТО убирает визуальный шум и оставляет только форму.</p>
-        </div>
-        <div class="persona card">
-          <h3>Семьи</h3>
-          <p>Надёжная посадка и спрятанный кабель — меньше шансов задеть или уронить, больше спокойствия.</p>
-        </div>
-        <div class="persona card">
-          <h3>Меломаны</h3>
-          <p>Световой акцент поддерживает настроение трека, а колонка всегда стоит уверенно и красиво.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="future" id="future">
-      <div class="section-head">
-        <p class="eyebrow">Будущее линейки</p>
-        <h2>От базовой версии до ПРО и дальше</h2>
-        <p class="lead">Мы готовим три конфигурации и новые форматы под другие станции.</p>
-      </div>
-      <div class="grid three">
-        <div class="card outlined future-card">
-          <h3>ПЛАТО</h3>
-          <p>Минимум — подсветка, кабель-менеджмент, универсальная посадка.</p>
-        </div>
-        <div class="card outlined future-card">
-          <h3>ПЛАТО ПЛЮС</h3>
-          <p>Добавляем аромат-картридж, кольцо управления светом и новые фактуры.</p>
-        </div>
-        <div class="card outlined future-card">
-          <h3>ПЛАТО ПРО</h3>
-          <p>Сценарии автоматизации, расширенная светомузыка, поддержка будущих станций.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta" id="cta">
-      <div class="cta__content card">
-        <div>
-          <p class="eyebrow">Финальный шаг</p>
-          <h2>Дайте вашей колонке дом уже сейчас.</h2>
-          <p class="lead">Оформите предзаказ или подпишитесь на запуск, чтобы первыми получить ПЛАТО.</p>
-          <div class="actions">
-            <a class="btn primary" href="#">Предзаказ</a>
-            <a class="btn ghost" href="#">Подписаться</a>
-          </div>
-        </div>
-        <div class="cta__badge">
-          <div class="halo"></div>
-          <span>Премиальный<br>минимализм</span>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <span>ПЛАТО — порядок в деталях.</span>
-    <span class="dot">·</span>
-    <span>Стиль, тишина, свет.</span>
-  </footer>
-
-  <script type="module" src="site.js"></script>
+<body class="text-plato-text font-sans antialiased">
+  <div class="noise-overlay"></div>
+  <div id="root"></div>
+<script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
