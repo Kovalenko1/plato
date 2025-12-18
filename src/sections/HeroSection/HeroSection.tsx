@@ -48,7 +48,7 @@ export default function HeroSection() {
             <div className={styles.mediaGlow} aria-hidden="true" />
             <div className={styles.mediaCard}>
               <img
-                src="public/assets/homeModel/1.png"
+                src="assets/homeModel/1.png"
                 alt="ПЛАТО в интерьере"
                 className={styles.mediaImage}
               />

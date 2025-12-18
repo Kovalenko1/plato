@@ -34,14 +34,14 @@ export default function EmotionSection() {
               <div className={styles.collageColumn}>
                 <div className={[styles.photo, styles.photoTall, styles.photoShift].join(' ')}>
                   <img
-                    src="public/assets/homeModel/1.1.png"
+                    src="assets/homeModel/1.1.png"
                     className={styles.photoImg}
                     alt="Деталь 1"
                   />
                 </div>
                 <div className={[styles.photo, styles.photoShort, styles.photoShift].join(' ')}>
                   <img
-                    src="public/assets/homeModel/1.2.png"
+                    src="assets/homeModel/1.2.png"
                     className={styles.photoImg}
                     alt="Деталь 2"
                   />
@@ -51,14 +51,14 @@ export default function EmotionSection() {
               <div className={styles.collageColumn}>
                 <div className={[styles.photo, styles.photoShort].join(' ')}>
                   <img
-                    src="public/assets/homeModel/p.1.png"
+                    src="assets/homeModel/p.1.png"
                     className={styles.photoImg}
                     alt="Деталь 3"
                   />
                 </div>
                 <div className={[styles.photo, styles.photoTall].join(' ')}>
                   <img
-                    src="public/assets/homeModel/p.2.png"
+                    src="assets/homeModel/p.2.png"
                     className={styles.photoImg}
                     alt="Деталь 4"
                   />

@@ -72,7 +72,7 @@ export default function ProblemSection() {
 
             <div className={styles.zenPreview}>
               <img
-                src="public/assets/homeModel/p.png"
+                src="assets/homeModel/p.png"
                 alt="Чистый интерьер"
                 className={styles.zenImage}
               />

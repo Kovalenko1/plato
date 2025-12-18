@@ -27,7 +27,7 @@ export default function InteriorSection() {
           <article className={styles.imageCard}>
             <div className={styles.imageFrame}>
               <img
-                src="public/assets/homeModel/onTable.png"
+                src="assets/homeModel/onTable.png"
                 className={styles.image}
                 alt="Тёплый интерьер"
               />
@@ -43,7 +43,7 @@ export default function InteriorSection() {
           <article className={[styles.imageCard, styles.imageCardOffset].join(' ')}>
             <div className={styles.imageFrame}>
               <img
-                src="public/assets/homeModel/underTv.png"
+                src="assets/homeModel/underTv.png"
                 className={styles.image}
                 alt="Минималистичный интерьер"
               />
