@@ -1,0 +1,109 @@
+@use '../../styles/mixins.scss' as mixins;
+
+.footer {
+  padding: 3rem 1.5rem;
+  border-top: 1px solid var(--plato-stroke);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.container {
+  @include mixins.container();
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.brandBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.brand {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  padding-top: 3px;
+  scale: 3.5;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.brandText {
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+}
+
+.brandLead {
+  margin: 0;
+  color: var(--plato-muted);
+  font-size: 0.8rem;
+  max-width: 16rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem 2.5rem;
+  color: var(--plato-muted);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.link {
+  transition: color 200ms ease;
+}
+
+.link:hover {
+  color: var(--plato-accent);
+}
+
+.meta {
+  text-align: center;
+}
+
+.madeIn {
+  margin: 0 0 0.25rem;
+  color: var(--plato-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 800;
+  font-size: 0.75rem;
+}
+
+.copyright {
+  margin: 0;
+  color: rgba(31, 31, 28, 0.5);
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .brandBlock {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .meta {
+    text-align: right;
+  }
+}
+

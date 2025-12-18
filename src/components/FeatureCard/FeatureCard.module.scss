@@ -1,0 +1,92 @@
+@use '../../styles/mixins.scss' as mixins;
+
+.card {
+  @include mixins.glass();
+
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 2rem;
+  border: 1px solid var(--plato-stroke);
+  background: rgba(255, 255, 255, 0.6);
+  transition:
+    border-color 500ms ease,
+    box-shadow 500ms ease,
+    transform 500ms ease;
+}
+
+.card:hover {
+  border-color: var(--plato-accent);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.14);
+  transform: translateY(-8px);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  background: var(--plato-bg);
+  color: var(--plato-accent);
+  margin-bottom: 1.5rem;
+  transition:
+    transform 500ms ease,
+    background-color 500ms ease,
+    color 500ms ease;
+}
+
+.card:hover .icon {
+  transform: scale(1.08);
+  background: var(--plato-accent);
+  color: #fff;
+}
+
+.index {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-weight: 900;
+  font-size: 2.25rem;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.05);
+  user-select: none;
+}
+
+.title {
+  margin: 0 0 0.75rem;
+  font-weight: 800;
+  font-size: 1.125rem;
+}
+
+.text {
+  margin: 0;
+  color: var(--plato-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 2rem;
+  }
+
+  .icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .index {
+    top: 1.75rem;
+    right: 1.75rem;
+    font-size: 2.5rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .text {
+    font-size: 1rem;
+  }
+}
+

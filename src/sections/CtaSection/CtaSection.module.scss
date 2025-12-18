@@ -1,0 +1,118 @@
+@use '../../styles/mixins.scss' as mixins;
+
+.section {
+  padding: 5rem 0;
+
+  @media (min-width: 768px) {
+    padding: 6rem 0;
+  }
+}
+
+.container {
+  @include mixins.container();
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2.5rem;
+  background: var(--plato-text);
+  padding: 2.5rem;
+
+  @media (min-width: 768px) {
+    border-radius: 4rem;
+    padding: 6rem;
+  }
+}
+
+.cardGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(123, 127, 113, 0.45), rgba(0, 0, 0, 0) 55%);
+}
+
+.cardGlow {
+  position: absolute;
+  top: -8rem;
+  left: -8rem;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  filter: blur(100px);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.lead {
+  margin: -1.25rem auto 2.5rem;
+  max-width: 36rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1rem;
+  line-height: 1.7;
+
+  @media (min-width: 768px) {
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.primaryButton {
+  border: 0;
+  border-radius: 1.25rem;
+  padding: 1.1rem 2.25rem;
+  background: var(--plato-accent);
+  color: #fff;
+  font-weight: 900;
+  font-size: 1rem;
+  box-shadow: 0 26px 70px rgba(180, 184, 169, 0.25);
+  transition:
+    transform 150ms ease,
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+.primaryButton:hover {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--plato-text);
+}
+
+.primaryButton:active {
+  transform: scale(0.98);
+}
+
+.dots {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  opacity: 0.3;
+  filter: grayscale(1) brightness(2);
+
+  @media (min-width: 768px) {
+    margin-top: 4rem;
+    gap: 2.5rem;
+  }
+}
+
+.dot {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: #fff;
+
+  @media (min-width: 768px) {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+

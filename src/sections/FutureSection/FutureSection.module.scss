@@ -1,0 +1,80 @@
+@use '../../styles/mixins.scss' as mixins;
+
+.section {
+  padding: 5rem 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-top: 1px solid var(--plato-stroke);
+  border-bottom: 1px solid var(--plato-stroke);
+
+  @media (min-width: 768px) {
+    padding: 6rem 0;
+  }
+}
+
+.container {
+  @include mixins.container();
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+
+.card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--plato-stroke);
+  background: #fff;
+  overflow: hidden;
+  transition: box-shadow 250ms ease;
+
+  @media (min-width: 768px) {
+    padding: 2.5rem;
+  }
+}
+
+.card:hover {
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.12);
+}
+
+.cardGlow {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 999px;
+  background: rgba(180, 184, 169, 0.08);
+  transition: transform 400ms ease;
+}
+
+.card:hover .cardGlow {
+  transform: scale(1.45);
+}
+
+.sparkles {
+  display: flex;
+  gap: 0.5rem;
+  color: var(--plato-accent);
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin: 0 0 0.75rem;
+  font-weight: 900;
+  font-size: 1.25rem;
+}
+
+.text {
+  margin: 0;
+  color: var(--plato-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
