@@ -62,7 +62,11 @@ const Navbar: React.FC = () => {
             : 'bg-transparent border-transparent'
         }`}>
           <a href="#hero" className="flex items-center gap-2 group relative z-[70]">
-            <div className="w-8 h-8 rounded-full bg-plato-accent flex items-center justify-center text-white font-bold text-xs group-hover:scale-110 transition-transform">П</div>
+            <img
+              src="/assets/plato.png"
+              alt="Плато"
+              className="w-8 h-8 object-contain group-hover:scale-110 transition-transform"
+            />
             <span className="font-bold tracking-widest text-lg uppercase">Плато</span>
           </a>
 
@@ -198,41 +202,40 @@ const App: React.FC = () => {
 
       <main className="pt-20 md:pt-24">
         {/* HERO SECTION */}
-        <section id="hero" className="relative min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden px-4 md:px-6 py-12 md:py-0">
+        <section id="hero" className="relative overflow-hidden px-4 md:px-6 py-12 md:py-0 md:min-h-[90vh] md:flex md:items-center">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-            <div className="z-10 order-2 md:order-1 text-center md:text-left">
-              <div className="inline-flex items-center gap-2 bg-white/50 glass border border-plato-stroke px-4 py-2 rounded-full mb-6 md:mb-8">
+            <div className="z-10 order-2 md:order-1 min-w-0 text-center md:text-left">
+              <div className="inline-flex max-w-full items-center gap-2 bg-white/50 glass border border-plato-stroke px-4 py-2 rounded-full mb-6 md:mb-8">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-plato-accent opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-plato-accent"></span>
                 </span>
-                <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-plato-muted">Дом для вашей SberBoom</span>
+                <span className="min-w-0 break-words text-[10px] md:text-xs font-bold uppercase tracking-wider text-plato-muted">Дом для вашей SberBoom</span>
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.15] md:leading-[1.1] mb-6 md:mb-8">
+              <h1 className="break-words text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.15] md:leading-[1.1] mb-6 md:mb-8">
                 Порядок, свет <br className="hidden sm:block"/>
                 и <span className="font-serif italic font-medium text-plato-accent-dark">аромат</span> в одном.
               </h1>
-              <p className="text-lg md:text-xl text-plato-muted leading-relaxed mb-8 md:mb-10 max-w-lg mx-auto md:mx-0">
-                ПЛАТО — премиальная подставка для SberBoom, которая организует пространство и делает колонку частью интерьера.
+              <p className="break-words text-lg md:text-xl text-plato-muted leading-relaxed mb-8 md:mb-10 max-w-lg mx-auto md:mx-0">
+                ПЛАТО - премиальная подставка для SberBoom, которая организует пространство и делает колонку частью интерьера.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 px-4 sm:px-0">
-                <a href="#cta" className="bg-plato-text text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl font-bold text-base md:text-lg hover:bg-plato-accent-dark transition-all shadow-xl active:scale-95">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="#cta" className="w-full sm:w-auto text-center bg-plato-text text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl font-bold text-base md:text-lg hover:bg-plato-accent-dark transition-all shadow-xl active:scale-95">
                   Предзаказ
                 </a>
-                <a href="#features" className="bg-white border border-plato-stroke px-8 md:px-10 py-4 md:py-5 rounded-2xl font-bold text-base md:text-lg hover:bg-plato-bg transition-all text-center active:scale-95">
+                <a href="#features" className="w-full sm:w-auto bg-white border border-plato-stroke px-8 md:px-10 py-4 md:py-5 rounded-2xl font-bold text-base md:text-lg hover:bg-plato-bg transition-all text-center active:scale-95">
                   Возможности
                 </a>
               </div>
-              
-              {/* Horizontal Scroll Tags for Mobile */}
-              <div className="mt-12 flex gap-3 overflow-x-auto pb-4 no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+               
+              <div className="mt-10 flex flex-wrap justify-center md:justify-start gap-3">
                 {['Минимализм', 'Интерьер', 'Эргономика', 'LED', 'Aroma'].map(tag => (
-                  <span key={tag} className="flex-shrink-0 px-4 py-2 bg-plato-accent/10 border border-plato-accent/20 rounded-full text-[10px] font-bold text-plato-accent-dark uppercase tracking-widest">{tag}</span>
+                  <span key={tag} className="max-w-full break-words px-4 py-2 bg-plato-accent/10 border border-plato-accent/20 rounded-full text-[10px] font-bold text-plato-accent-dark uppercase tracking-widest">{tag}</span>
                 ))}
               </div>
             </div>
 
-            <div className="relative order-1 md:order-2 group px-4 md:px-0">
+            <div className="relative order-1 md:order-2 group">
               <div className="absolute -inset-10 bg-plato-accent/20 rounded-full blur-[80px] md:blur-[100px] opacity-40 group-hover:opacity-60 transition-opacity"></div>
               <div className="relative aspect-[4/5] md:aspect-auto md:h-[550px] lg:h-[650px] rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden border border-white/50 shadow-2xl transition-transform duration-700 md:hover:scale-[1.02]">
                 <img 
@@ -369,23 +372,6 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-16 md:mt-24 bg-white rounded-[2.5rem] md:rounded-[4rem] p-6 md:p-16 border border-plato-stroke shadow-sm">
-              <h3 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">Гайд по размещению</h3>
-              <div className="max-w-4xl mx-auto">
-                <AccordionItem title="Гостиная" subtitle="зона ТВ, консоль, журнальный стол">
-                  <p>Оставьте «воздух» 10–15 см до стены — это улучшает акустику и делает композицию легче.</p>
-                  <p>Провод направляйте за ножку мебели — так он станет полностью невидимым для глаз.</p>
-                </AccordionItem>
-                <AccordionItem title="Спальня" subtitle="прикроватная зона, тумба">
-                  <p>Располагайте ПЛАТО на одной линии с лампой — это создаёт визуальный ритм и порядок.</p>
-                  <p>Используйте тёплую подсветку как ночник — она мягко рассеивается по поверхности.</p>
-                </AccordionItem>
-                <AccordionItem title="Кабинет" subtitle="рабочий стол, полка над столом">
-                  <p>ПЛАТО в центре стола организует хаос: оно становится якорем для других мелких вещей.</p>
-                  <p>Идеально для SberBoom в качестве офисного ассистента, который всегда под рукой.</p>
-                </AccordionItem>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -404,9 +390,6 @@ const App: React.FC = () => {
                 { icon: <Wind size={26} />, title: 'Скрытый аромат', text: 'Специальный отсек для картриджа. Тонкий аромат без лишних девайсов.' },
                 { icon: <Lightbulb size={26} />, title: 'Мягкий LED', text: 'Адаптивная подсветка основания. Создаёт уютный ореол вокруг колонки.' },
                 { icon: <Zap size={26} />, title: 'Cable Management', text: 'Прячет штекер и провод внутри корпуса. Выход кабеля снизу.' },
-                { icon: <Layout size={26} />, title: 'Магнитная посадка', text: 'Надёжная фиксация колонки. Подходит для всех версий SberBoom.' },
-                { icon: <ShieldCheck size={26} />, title: 'CNC Алюминий', text: 'Основание из авиационного алюминия с пескоструйной обработкой.' },
-                { icon: <Sparkles size={26} />, title: 'Тактильность', text: 'Поверхность Soft-touch и матовый металл. Приятно касаться.' }
               ].map((f, i) => (
                 <FeatureCard 
                   key={i}
@@ -522,9 +505,6 @@ const App: React.FC = () => {
                 <button className="bg-plato-accent hover:bg-white hover:text-plato-text px-8 md:px-12 py-4 md:py-5 rounded-2xl font-bold text-base md:text-lg transition-all shadow-2xl active:scale-95">
                   Оставить заявку
                 </button>
-                <button className="bg-white/10 glass border border-white/20 px-8 md:px-12 py-4 md:py-5 rounded-2xl font-bold text-base md:text-lg hover:bg-white/20 transition-all active:scale-95">
-                  Спецификации
-                </button>
               </div>
               
               <div className="mt-16 flex items-center justify-center gap-6 md:gap-10 opacity-30 grayscale brightness-200">
@@ -541,7 +521,11 @@ const App: React.FC = () => {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 md:gap-8">
           <div className="flex flex-col items-center md:items-start gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-plato-accent flex items-center justify-center text-white font-bold text-xs">П</div>
+              <img
+                src="/assets/plato.png"
+                alt="Плато"
+                className="w-8 h-8 object-contain"
+              />
               <span className="font-bold tracking-widest text-lg uppercase">Плато</span>
             </div>
             <p className="text-xs text-plato-muted text-center md:text-left max-w-[200px]">Создаём пространство для технологий, которые мы любим.</p>
