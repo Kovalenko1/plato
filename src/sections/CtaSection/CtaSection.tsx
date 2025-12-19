@@ -19,15 +19,21 @@ export default function CtaSection() {
             />
 
             <p className={styles.lead}>
-              Оставьте заявку, чтобы получить эксклюзивную цену раннего доступа и секретный бонус к запуску.
+              Свяжитесь с нами, чтобы получить эксклюзивную цену раннего доступа и секретный бонус к запуску.
             </p>
+            <div className={styles.actionsContainer}>
+              <div className={styles.actions}>
+                <button type="button" className={styles.primaryButton}>
+                  Оставить заявку
+                </button>
+              </div>
 
-            <div className={styles.actions}>
-              <button type="button" className={styles.primaryButton}>
-                Оставить заявку
-              </button>
+              <div className={styles.mail}>
+                <button type="button" className={styles.primaryButton}>
+                  info@innovatsiivrf.ru
+                </button>
+              </div>
             </div>
-
             <div className={styles.dots} aria-hidden="true">
               <span className={styles.dot} />
               <span className={styles.dot} />

@@ -61,9 +61,22 @@
   }
 }
 
-.actions {
+.actionsContainer{
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
+}
+
+.actions {
+  justify-content: center;
+  margin-right: 3em;
+}
+
+.mail {
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
 }
 
 .primaryButton {
