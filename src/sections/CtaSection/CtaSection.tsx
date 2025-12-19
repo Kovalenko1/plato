@@ -13,7 +13,6 @@ export default function CtaSection() {
           <div className={styles.content}>
             <SectionHeading
               centered
-              variant="inverted"
               eyebrow="Запуск скоро"
               title="Дайте вашей колонке дом уже сегодня"
             />
@@ -29,9 +28,9 @@ export default function CtaSection() {
               </div>
 
               <div className={styles.mail}>
-                <button type="button" className={styles.primaryButton}>
+                <a href="mailto:info@innovatsiivrf.ru" className={styles.secondaryButton}>
                   info@innovatsiivrf.ru
-                </button>
+                </a>
               </div>
             </div>
             <div className={styles.dots} aria-hidden="true">

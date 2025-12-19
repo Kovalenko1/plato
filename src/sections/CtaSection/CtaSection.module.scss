@@ -13,22 +13,29 @@
 }
 
 .card {
+  @include mixins.glass(18px);
+  background-image: url('assets/ЛоготипРМО.png');
+  background-size: cover;
   position: relative;
   overflow: hidden;
   border-radius: 2.5rem;
-  background: var(--plato-text);
-  padding: 2.5rem;
+  border: 1px solid var(--plato-stroke);
+  padding: 2.25rem;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.08);
 
   @media (min-width: 768px) {
-    border-radius: 4rem;
-    padding: 6rem;
+    border-radius: 3.5rem;
+    padding: 3.5rem;
   }
 }
 
 .cardGradient {
+  backdrop-filter: blur(10px);
   position: absolute;
   inset: 0;
-  background: linear-gradient(45deg, rgba(123, 127, 113, 0.45), rgba(0, 0, 0, 0) 55%);
+  background:
+    radial-gradient(closest-side at 15% 30%, rgba(180, 184, 169, 0.2), transparent 60%),
+    radial-gradient(closest-side at 85% 70%, rgba(180, 184, 169, 0.12), transparent 62%);
 }
 
 .cardGlow {
@@ -38,7 +45,7 @@
   width: 16rem;
   height: 16rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(180, 184, 169, 0.18);
   filter: blur(100px);
 }
 
@@ -46,12 +53,15 @@
   position: relative;
   z-index: 1;
   text-align: center;
+  color: var(--plato-text);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 100px;
 }
 
 .lead {
   margin: -1.25rem auto 2.5rem;
   max-width: 36rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--plato-muted);
   font-size: 1rem;
   line-height: 1.7;
 
@@ -61,45 +71,80 @@
   }
 }
 
-.actionsContainer{
+.actionsContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.75rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 1.25rem;
+  }
 }
 
 .actions {
   justify-content: center;
-  margin-right: 3em;
+  margin-right: 0;
+
+  @media (min-width: 768px) {
+    margin-right: 1.5rem;
+  }
 }
 
 .mail {
   justify-content: center;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .primaryButton {
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 1.25rem;
   padding: 1.1rem 2.25rem;
-  background: var(--plato-accent);
+  background: var(--plato-text);
   color: #fff;
   font-weight: 900;
   font-size: 1rem;
-  box-shadow: 0 26px 70px rgba(180, 184, 169, 0.25);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.18);
   transition:
     transform 150ms ease,
     background-color 200ms ease,
-    color 200ms ease;
+    color 200ms ease,
+    border-color 200ms ease;
 }
 
 .primaryButton:hover {
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--plato-text);
+  background: var(--plato-accent-dark);
 }
 
 .primaryButton:active {
+  transform: scale(0.98);
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.25rem;
+  padding: 1.1rem 2.25rem;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--plato-stroke);
+  color: var(--plato-text);
+  font-weight: 900;
+  font-size: 1rem;
+  transition:
+    transform 150ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+.secondaryButton:hover {
+  background: rgba(244, 242, 238, 0.9);
+  border-color: rgba(180, 184, 169, 0.35);
+}
+
+.secondaryButton:active {
   transform: scale(0.98);
 }
 
@@ -108,8 +153,7 @@
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  opacity: 0.3;
-  filter: grayscale(1) brightness(2);
+  opacity: 0.5;
 
   @media (min-width: 768px) {
     margin-top: 4rem;
@@ -121,7 +165,7 @@
   width: 2rem;
   height: 2rem;
   border-radius: 999px;
-  background: #fff;
+  background: rgba(180, 184, 169, 0.22);
 
   @media (min-width: 768px) {
     width: 3rem;
