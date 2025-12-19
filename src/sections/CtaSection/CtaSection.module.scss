@@ -14,7 +14,7 @@
 
 .card {
   @include mixins.glass(18px);
-  background-image: url('assets/ЛоготипРМО.png');
+  background-image: url('ЛоготипРМО.png');
   background-size: cover;
   position: relative;
   overflow: hidden;
